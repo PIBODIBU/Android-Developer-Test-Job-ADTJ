@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">Android Developer Test Job</string>
+    <string name="app_name">ADTJ</string>
+
+    <string name="api_login">iostest</string>
+    <string name="api_password">iostest2k17!</string>
+
+    <string name="error_loading_channels">Error occurred during loading. Please, try again</string>
+    <string name="try_again">Try again</string>
 </resources>
