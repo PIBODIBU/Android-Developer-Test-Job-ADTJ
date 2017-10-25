@@ -6,4 +6,10 @@
 
     <string name="error_loading_channels">Error occurred during loading. Please, try again</string>
     <string name="try_again">Try again</string>
+
+    <string name="tab_chat">Chat</string>
+    <string name="tab_live_chat">Live Chat</string>
+    <string name="remove">Remove</string>
+    <string name="menu_item_block">Block</string>
+    <string name="start">Start</string>
 </resources>

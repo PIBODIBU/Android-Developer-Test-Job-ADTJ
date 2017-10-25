@@ -2,7 +2,9 @@ package com.test.developer.data.model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
     @SerializedName("id")
     private Integer id;
 

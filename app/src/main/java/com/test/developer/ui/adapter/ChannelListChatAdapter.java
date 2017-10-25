@@ -63,7 +63,7 @@ public class ChannelListChatAdapter extends RecyclerView.Adapter<RecyclerView.Vi
                 ((ChannelListChatViewHolder) holder).containerBadge.setVisibility(View.GONE);
 
             if (channelClickListener != null)
-                ((ChannelListChatViewHolder) holder).rootView.setOnClickListener(new View.OnClickListener() {
+                ((ChannelListChatViewHolder) holder).rootView.getSurfaceView().setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         channelClickListener.onChannelClick(channel);

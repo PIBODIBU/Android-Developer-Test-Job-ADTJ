@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
+import com.daimajia.swipe.SwipeLayout;
 import com.test.developer.R;
 
 import butterknife.BindView;
@@ -30,7 +31,7 @@ public class ChannelListChatViewHolder extends RecyclerView.ViewHolder {
     public TextView tvBadge;
 
     @BindView(R.id.root_view)
-    public View rootView;
+    public SwipeLayout rootView;
 
     public ChannelListChatViewHolder(View itemView) {
         super(itemView);

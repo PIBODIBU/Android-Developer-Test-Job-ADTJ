@@ -1,15 +1,17 @@
 package com.test.developer.ui.presenter;
 
+import android.content.Intent;
+
 import com.test.developer.R;
 import com.test.developer.data.api.ChannelAPI;
 import com.test.developer.data.api.ServiceGenerator;
 import com.test.developer.data.model.Channel;
 import com.test.developer.data.model.response.ChannelListResponse;
+import com.test.developer.ui.activity.ChatDetailsActivity;
 import com.test.developer.ui.adapter.ChannelListChatAdapter;
+import com.test.developer.ui.callback.ChannelLoadListener;
 import com.test.developer.ui.contract.ChannelListContract;
 
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.LinkedList;
 
 import retrofit2.Call;
@@ -81,6 +83,28 @@ public class ChannelListChatPresenterImpl implements ChannelListContract.Chat.Pr
     }
 
     @Override
+    public void fetchChatList(final ChannelLoadListener loadListener) {
+        ServiceGenerator.createService(ChannelAPI.class,
+                view.getViewContext().getResources().getString(R.string.api_login),
+                view.getViewContext().getResources().getString(R.string.api_password))
+                .getChannelList().enqueue(new Callback<ChannelListResponse>() {
+            @Override
+            public void onResponse(Call<ChannelListResponse> call, Response<ChannelListResponse> response) {
+                if (!response.isSuccessful() || response.body() == null || response.body().getData() == null) {
+                    return;
+                }
+
+                if (loadListener != null)
+                    loadListener.onLoaded(response.body().getData());
+            }
+
+            @Override
+            public void onFailure(Call<ChannelListResponse> call, Throwable t) {
+            }
+        });
+    }
+
+    @Override
     public void reloadChatList() {
         view.hideErrorMessage();
         view.showLoadingIndicator();
@@ -95,6 +119,12 @@ public class ChannelListChatPresenterImpl implements ChannelListContract.Chat.Pr
 
     @Override
     public void onChannelClick(Channel channel) {
+        view.getViewContext().startActivity(new Intent(view.getViewContext(), ChatDetailsActivity.class)
+                .putExtra(ChatDetailsActivity.INTENT_KEY_USER, channel.getLastMessage().getSender()));
+    }
 
+    @Override
+    public Integer getUnreadCount() {
+        return adapter.getChannels().size();
     }
 }

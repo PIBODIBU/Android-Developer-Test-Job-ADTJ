@@ -88,4 +88,9 @@ public class ChannelListChatFragment extends Fragment implements ChannelListCont
     public void tryAgainClick() {
         presenter.reloadChatList();
     }
+
+    @Override
+    public ChannelListContract.Chat.Presenter getPresenter() {
+        return presenter;
+    }
 }

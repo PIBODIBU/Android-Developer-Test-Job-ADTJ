@@ -1,86 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.daimajia.swipe.SwipeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/root_view"
     android:layout_width="match_parent"
-    android:layout_height="70dp"
-    android:background="@color/white"
-    android:paddingEnd="16dp"
-    android:paddingStart="16dp"
-    android:paddingTop="8dp">
+    android:layout_height="wrap_content"
+    app:drag_edge="left">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/civ_avatar"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_centerVertical="true" />
+    <LinearLayout
+        android:id="@+id/bottom_wrapper"
+        android:layout_width="80dp"
+        android:layout_height="match_parent"
+        android:background="#66ddff00"
+        android:orientation="horizontal"
+        android:weightSum="1">
 
-    <TextView
-        android:id="@+id/tv_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="11dp"
-        android:layout_toEndOf="@+id/civ_avatar"
-        android:fontFamily="sans-serif-medium"
-        android:textColor="@color/colorTextPrimary"
-        android:textSize="16sp"
-        android:textStyle="normal"
-        tools:text="Denise Barnes" />
-
-    <TextView
-        android:id="@+id/tv_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/tv_name"
-        android:layout_below="@+id/tv_name"
-        android:layout_marginTop="3dp"
-        android:fontFamily="sans-serif"
-        android:textColor="@color/colorTextSecondary"
-        android:textSize="14sp"
-        android:textStyle="normal"
-        tools:text="Tousled food truck polaroid, sa…" />
-
-    <TextView
-        android:id="@+id/tv_date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="14dp"
-        android:layout_toStartOf="@+id/iv_arrow"
-        android:fontFamily="sans-serif"
-        android:textColor="@color/colorTextTools"
-        android:textSize="12sp"
-        tools:text="16:04" />
-
-    <ImageView
-        android:id="@+id/iv_arrow"
-        android:layout_width="16dp"
-        android:layout_height="16dp"
-        android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"
-        app:srcCompat="@drawable/ic_arrow_grey" />
-
-    <RelativeLayout
-        android:id="@+id/container_badge"
-        android:layout_width="22dp"
-        android:layout_height="22dp"
-        android:layout_alignEnd="@+id/tv_date"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="17dp"
-        android:background="@drawable/badge">
-
-        <TextView
-            android:id="@+id/tv_badge"
+        <Button
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
-            android:textColor="@color/white"
-            tools:text="-1" />
-    </RelativeLayout>
+            android:background="@color/colorPrimary"
+            android:text="@string/remove"
+            android:textColor="@color/white" />
+    </LinearLayout>
 
-    <View
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_alignParentBottom="true"
-        android:background="@color/colorDivider" />
-</RelativeLayout>
+        android:layout_height="70dp"
+        android:background="@color/white"
+        android:paddingEnd="16dp"
+        android:paddingStart="16dp"
+        android:paddingTop="8dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/civ_avatar"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="11dp"
+            android:layout_toEndOf="@+id/civ_avatar"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/colorTextPrimary"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            tools:text="Denise Barnes" />
+
+        <TextView
+            android:id="@+id/tv_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/tv_name"
+            android:layout_below="@+id/tv_name"
+            android:layout_marginTop="3dp"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/colorTextSecondary"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            tools:text="Tousled food truck polaroid, sa…" />
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="14dp"
+            android:layout_toStartOf="@+id/iv_arrow"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/colorTextTools"
+            android:textSize="12sp"
+            tools:text="16:04" />
+
+        <ImageView
+            android:id="@+id/iv_arrow"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            app:srcCompat="@drawable/ic_arrow_grey" />
+
+        <RelativeLayout
+            android:id="@+id/container_badge"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_alignEnd="@+id/tv_date"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="17dp"
+            android:background="@drawable/badge">
+
+            <TextView
+                android:id="@+id/tv_badge"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textColor="@color/white"
+                tools:text="-1" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/colorDivider" />
+    </RelativeLayout>
+</com.daimajia.swipe.SwipeLayout>

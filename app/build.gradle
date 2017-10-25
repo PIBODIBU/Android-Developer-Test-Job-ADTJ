@@ -56,4 +56,7 @@ dependencies {
 
     compile 'org.reflections:reflections:0.9.11'
     compile 'org.greenrobot:eventbus:3.0.0'
+
+    // Custom view
+    compile "com.daimajia.swipelayout:library:1.2.0@aar"
 }
